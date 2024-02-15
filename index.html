@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Virtual Library</title>
+    </head>
+    <body>
+        <header>
+            <div class="title-container">
+                <h1 class="title">
+                    Virtual <br />
+                    Library
+                </h1>
+            </div>
+        </header>
+
+        <div class="addBook-container">
+            <button class="addbook-btn" id="addbook-btn">
+                ADD <br />
+                BOOK
+            </button>
+        </div>
+
+        <div id="addbook-form" class="addbook-form">
+            <div class="addbook-form-content">
+                <span class="close" id="closePopupButton">&times;</span>
+                <h2 class="form-title">Add a book to your library</h2>
+                <br />
+                <form id="myForm">
+                    <div class="form-row">
+                        <label for="bookTitle">Book title:</label>
+                        <input
+                            type="text"
+                            id="bookTitle"
+                            name="bookTitle"
+                            required
+                        />
+                    </div>
+                    <br />
+                    <div class="form-row">
+                        <label for="bookAuthor">Book author:</label>
+                        <input
+                            type="text"
+                            id="bookAuthor"
+                            name="bookAuthor"
+                            required
+                        />
+                    </div>
+                    <br />
+                    <div class="form-row">
+                        <label for="bookPages">Number of pages:</label>
+                        <input
+                            type="number"
+                            id="bookPages"
+                            name="bookPages"
+                            required
+                        />
+                    </div>
+                    <br />
+
+                    <div class="form-row">
+                        <label for="bookRead">Read:</label>
+                        <div class="form-row">
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="bookRead"
+                                    name="bookRead"
+                                />
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <br />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+
+        <div class="library-container">
+            <div class="library-row">
+                <div class="library-column">
+                    <div class="book">
+                        <h3>Card 1</h3>
+                        <p>Some text</p>
+                        <p>Some text</p>
+                    </div>
+                </div>
+                <div class="library-column">
+                    <div class="book">
+                        <h3>Card 2</h3>
+                        <p>Some text</p>
+                        <p>Some text</p>
+                    </div>
+                </div>
+                <div class="library-column">
+                    <div class="book">
+                        <h3>Card 3</h3>
+                        <p>Some text</p>
+                        <p>Some text</p>
+                    </div>
+                </div>
+                <div class="library-column">
+                    <div class="book">
+                        <h3>Card 4</h3>
+                        <p>Some text</p>
+                        <p>Some text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p class="footer__text">
+                This application was made for The Odin Project, using HTML, CSS
+                and JavaScript.
+            </p>
+            <p class="footer__copyright">
+                &copy; Copyright by&nbsp
+                <a
+                    class="footer__link"
+                    target="_blank"
+                    href="https://www.linkedin.com/in/adrian-horlescu"
+                >
+                    Horlescu Adrian</a
+                >
+            </p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
