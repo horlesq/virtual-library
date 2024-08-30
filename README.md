@@ -42,7 +42,7 @@ Check out the live demo of the project at: [Virtual-Library](https://virtual-lib
 To run this project locally, follow these steps:
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/your-username/virtual-library.git
+git clone https://github.com/horlesq/virtual-library.git
 ```
 2. **Navigate to the project directory**:
 ```bash
@@ -58,3 +58,7 @@ For any inquiries or feedback, feel free to reach out via:
 - Email: adrian.horlescu@gmail.com
 - Linkedin [Adrian Horlescu](https://www.linkedin.com/in/adrian-horlescu/)
 - GitHub: [Horlesq](https://github.com/horlesq)
+
+---
+
+This application is an assignment for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-library)
