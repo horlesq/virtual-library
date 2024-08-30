@@ -93,8 +93,33 @@ const persistLibrary = function () {
 
 const init = function () {
     const storage = localStorage.getItem("library");
-    if (storage) myLibrary = JSON.parse(storage);
-    console.log(myLibrary);
+    if (storage) {
+        // If there's a library in localStorage, use it.
+        myLibrary = JSON.parse(storage);
+    } else {
+        // If there's no library in localStorage, initialize it with default books.
+        addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 295, true);
+        addBookToLibrary(
+            "A Game of Thrones",
+            "George R. R. Martin",
+            694,
+            false
+        );
+        addBookToLibrary(
+            "Harry Potter and the Philosopher's Stone",
+            "J. K. Rowling",
+            183,
+            false
+        );
+        addBookToLibrary(
+            "A Wizard of Earthsea",
+            "Ursula K. Le Guin",
+            224,
+            false
+        );
+        // Persist the library with default books to localStorage.
+        persistLibrary();
+    }
 
     /** Display initial data */
     displayBooksInLibrary(myLibrary);
@@ -143,14 +168,5 @@ readInidicators.forEach(function (indicator) {
 });
 
 /** Default data */
-// addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 295, true);
-// addBookToLibrary("A Game of Thrones", "George R. R. Martin", 694, false);
-// addBookToLibrary(
-//     "Harry Potter and the Philosopher's Stone",
-//     "J. K. Rowling",
-//     183,
-//     false
-// );
-// addBookToLibrary("A Wizard of Earthsea", "Ursula K. Le Guin", 224, false);
 
 init();
