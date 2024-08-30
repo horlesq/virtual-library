@@ -13,7 +13,7 @@ const inputBookRead = document.getElementById("bookRead");
 const containerBooks = document.querySelector(".library-row");
 const readInidicators = document.querySelectorAll(".read-indicator");
 
-const myLibrary = [];
+let myLibrary = [];
 
 // Book constructor
 function Book(title, author, pages, read) {
@@ -32,6 +32,8 @@ function Book(title, author, pages, read) {
 
 const addBookToLibrary = function (title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read));
+
+    persistLibrary(); // Add to local storage
 };
 
 const displayBooksInLibrary = function (library) {
@@ -64,6 +66,8 @@ const displayBooksInLibrary = function (library) {
                 document.querySelector(`.library-column--${i}`).style.display =
                     "none";
                 myLibrary.splice(i, 1);
+
+                persistLibrary();
             });
 
         // Event for mark read/unread button
@@ -71,6 +75,8 @@ const displayBooksInLibrary = function (library) {
             .getElementById(`${readIndicator}--${i}`)
             .addEventListener("click", function () {
                 myLibrary[i].read = !myLibrary[i].read;
+                // Update local storage
+                persistLibrary();
                 displayBooksInLibrary(myLibrary);
             });
     });
@@ -79,6 +85,19 @@ const displayBooksInLibrary = function (library) {
 const toggleRead = function (book) {
     // Toggle the 'read' class on the book
     book.read ? book.classList.toggle("read") : book.classList.toggle("unread");
+};
+
+const persistLibrary = function () {
+    localStorage.setItem("library", JSON.stringify(myLibrary));
+};
+
+const init = function () {
+    const storage = localStorage.getItem("library");
+    if (storage) myLibrary = JSON.parse(storage);
+    console.log(myLibrary);
+
+    /** Display initial data */
+    displayBooksInLibrary(myLibrary);
 };
 
 /** EVENTS */
@@ -99,6 +118,8 @@ submitForm.addEventListener("submit", function (e) {
             inputBookRead.checked
         )
     );
+    // Update local storage
+    persistLibrary();
     // Clear fields
     inputBookTitle.value = "";
     inputBookAuthor.value = "";
@@ -122,15 +143,14 @@ readInidicators.forEach(function (indicator) {
 });
 
 /** Default data */
-addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 295, true);
-addBookToLibrary("A Game of Thrones", "George R. R. Martin", 694, false);
-addBookToLibrary(
-    "Harry Potter and the Philosopher's Stone",
-    "J. K. Rowling",
-    183,
-    false
-);
-addBookToLibrary("A Wizard of Earthsea", "Ursula K. Le Guin", 224, false);
+// addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 295, true);
+// addBookToLibrary("A Game of Thrones", "George R. R. Martin", 694, false);
+// addBookToLibrary(
+//     "Harry Potter and the Philosopher's Stone",
+//     "J. K. Rowling",
+//     183,
+//     false
+// );
+// addBookToLibrary("A Wizard of Earthsea", "Ursula K. Le Guin", 224, false);
 
-/** Display initial data */
-displayBooksInLibrary(myLibrary);
+init();
