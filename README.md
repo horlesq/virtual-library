@@ -34,7 +34,7 @@ Check out the live demo of the project at: [Virtual-Library](https://virtual-lib
 ## Technologies
 
 - HTML5
-- SASS
+- CSS3
 - JavaScript
 
 ## Installation
