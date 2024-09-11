@@ -11,6 +11,7 @@ A simple web-based Library Management Application that allows users to keep trac
 - [Usage](#usage)
 - [Technologies](#technologies)
 - [Installation](#installation)
+- [License](#license)
 - [Contact](#contact)
 
 ## Features
@@ -50,6 +51,9 @@ cd virtual-library
 ```
 3. **Open index.html in your web browser**:
 Simply open the index.html file in your preferred web browser to start using the app.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contact
 
